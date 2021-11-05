@@ -15,10 +15,14 @@ public class ModeController : MonoBehaviour
 
     [SerializeField]
     GameObject setBlockMode;    // 블록 설치 모드
+    GameObject setBlockModeUI;
+
     [SerializeField]
     GameObject removeBlockMode; // 블록 제거 모드
+    GameObject removeBlockModeUI;
 
-    GameObject presentMode = null; // 현재 모드
+    GameObject presentMode = null;      // 현재 모드
+    GameObject presentModeUI = null;    // 현재 모드UI 
 
     static float MIN_LENGHT = 0;
     static float MAX_LENGHT = 100;
@@ -26,7 +30,7 @@ public class ModeController : MonoBehaviour
     [Space(10)]
 
     [SerializeField]
-    float lenght;
+    float lenght = 0;
 
     private void Awake()
     {
@@ -40,6 +44,11 @@ public class ModeController : MonoBehaviour
             if (instance != this)
                 Destroy(this.gameObject); 
         }
+
+        setBlockModeUI = GameObject.Find("SetBlockModeUI");
+        setBlockModeUI.SetActive(false);
+        removeBlockModeUI = GameObject.Find("RemoveBlockModeUI");
+        removeBlockModeUI.SetActive(false);
 
         ChangeMode(MODE.DEFAULT);
     }
@@ -59,15 +68,25 @@ public class ModeController : MonoBehaviour
         return lenght;
     }
 
-    public void ChangeLength(float persent)
+    public float GetNomalizedLength()
     {
-        lenght = (MAX_LENGHT - MIN_LENGHT) * persent;
+        Debug.Log(lenght / (MAX_LENGHT - MIN_LENGHT));
+
+        return lenght / (MAX_LENGHT - MIN_LENGHT);
+    }
+
+    public void ChangeLength(float nomalize)
+    {
+        lenght = (MAX_LENGHT - MIN_LENGHT) * nomalize;
     }
 
     public void ChangeMode(MODE mode)
     {
         if (presentMode != null)
+        {
             presentMode.SetActive(false);
+            presentModeUI.SetActive(false);
+        }
 
         switch(mode)
         {
@@ -77,14 +96,19 @@ public class ModeController : MonoBehaviour
 
             case MODE.SET_BLOCK:
                 presentMode = setBlockMode;
+                presentModeUI = setBlockModeUI;
                 break;
 
             case MODE.REMOVE_BLOCK:
                 presentMode = removeBlockMode;
+                presentModeUI = removeBlockModeUI;
                 break;
         }
 
         if (presentMode != null)
+        {
             presentMode.SetActive(true);
+            presentModeUI.SetActive(true);
+        }
     }
 }

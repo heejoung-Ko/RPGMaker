@@ -17,7 +17,9 @@ public class LengthSlider : MonoBehaviour
 
     private void OnEnable()
     {
-        lengthValue.text = ModeController.instance.GetLenght().ToString();
+        float length = ModeController.instance.GetLenght();
+        slider.value = ModeController.instance.GetNomalizedLength();
+        lengthValue.text = length.ToString();
     }
 
     public void ChangeLength()
