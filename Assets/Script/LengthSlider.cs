@@ -10,7 +10,7 @@ public class LengthSlider : MonoBehaviour
     [SerializeField]
     Text lengthValue;
 
-    private void Start()
+    private void Awake()
     {
         slider = GetComponentInChildren<Slider>();
     }

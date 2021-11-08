@@ -53,15 +53,25 @@
     <UnityVersion>2020.3.21f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Script\CameraMove.cs" />
-    <Compile Include="Assets\Script\RemoveBlockMode.cs" />
-    <Compile Include="Assets\Script\ModeController.cs" />
+    <Compile Include="Assets\Script\Camera\CameraMove.cs" />
+    <Compile Include="Assets\Script\Mode\RemoveBlockMode.cs" />
+    <Compile Include="Assets\Script\Mode\ModeController.cs" />
+    <Compile Include="Assets\Script\Data\DataManager.cs" />
     <Compile Include="Assets\AssetPack\SD_Project\Scripts\ThirdPersonCamera.cs" />
     <Compile Include="Assets\AssetPack\SD_Project\Scripts\controller.cs" />
-    <Compile Include="Assets\Script\SetBlockMode.cs" />
+    <Compile Include="Assets\Script\Mode\SetBlockMode.cs" />
     <Compile Include="Assets\Script\LengthSlider.cs" />
     <Compile Include="Assets\AssetPack\SD_Project\Scripts\MecanimButton.cs" />
-    <Compile Include="Assets\Script\CameraRotate.cs" />
+    <Compile Include="Assets\Script\Camera\CameraRotate.cs" />
+    <Compile Include="Assets\Script\Data\CSVReader.cs" />
+    <Compile Include="Assets\Script\Data\Object.cs" />
+    <Compile Include="Assets\Script\Slot\ListSlot.cs" />
+    <Compile Include="Assets\Script\SetScrollList.cs" />
+    <Compile Include="Assets\Script\Slot\QuickSlot.cs" />
+    <Compile Include="Assets\Script\QuickSlotList.cs" />
+    <Compile Include="Assets\Script\WindowButton.cs" />
+    <Compile Include="Assets\Script\Slot\Slot.cs" />
+    <Compile Include="Assets\Script\SetBlockModeUIManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AssetPack\SD_Project\UnityChanShader\Shader\Unitychan_chara_fuku.shader" />
