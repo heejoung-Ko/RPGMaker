@@ -33,6 +33,15 @@ public class CameraRotate : MonoBehaviour, IBeginDragHandler, IDragHandler
         float xRotate = cameraTF.eulerAngles.x + tempPosY * rotateSensitivity * Time.deltaTime;
         float yRotate = cameraTF.eulerAngles.y + tempPosX * rotateSensitivity * Time.deltaTime;
 
+        xRotate = (xRotate + 360) % 360;
+
+        if (269f < xRotate)
+            xRotate = Mathf.Clamp(xRotate, 280f, 360f);
+        else if(xRotate < 91f)
+            xRotate = Mathf.Clamp(xRotate, 0f, 80f);
+
+        Debug.Log(xRotate);
+
         cameraTF.rotation = Quaternion.Euler(xRotate, yRotate, 0);
 
         beginPos = eventData.position;
