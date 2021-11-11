@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class DataManager : MonoBehaviour
 {
+    static int MAP_SIZE = 100;
+
     public static DataManager instance;
 
     public List<Object> BlockList;
 
+    public Dictionary<int, Object> MapBlockData;
+    
     string dataPath = "Data/";
     string iconPath = "Icon/";
     string prefabPath = "Prefabs/";
@@ -25,12 +29,19 @@ public class DataManager : MonoBehaviour
                 Destroy(this.gameObject);
         }
 
-        setData();
-    }
 
+        setData();
+
+        setMap();
+    }
     void setData()
     {
         setBlockData();
+    }
+
+    void setMap()
+    {
+        MapBlockData = new Dictionary<int, Object>();
     }
 
     void setBlockData()
