@@ -60,6 +60,9 @@ public class RemoveBlockMode : MonoBehaviour
             return;
         }
 
-        Destroy(selectBlock);
+        if (MapDataManager.instance.RemoveBlock(selectBlock.transform.position))
+            Destroy(selectBlock);
+        else
+            Debug.Log("Fail Remove Block");
     }
 }

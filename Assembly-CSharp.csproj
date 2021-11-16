@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Assets\Script\Camera\CameraMove.cs" />
     <Compile Include="Assets\Script\WindowButton.cs" />
+    <Compile Include="Assets\Script\Player\PlayerCharacter.cs" />
     <Compile Include="Assets\Script\Mode\RemoveBlockMode.cs" />
     <Compile Include="Assets\Script\PosInfo.cs" />
     <Compile Include="Assets\Script\LengthChange.cs" />
@@ -73,7 +74,9 @@
     <Compile Include="Assets\Script\Camera\CameraRotate.cs" />
     <Compile Include="Assets\Script\Slot\QuickSlot.cs" />
     <Compile Include="Assets\Script\Data\CSVReader.cs" />
-    <Compile Include="Assets\Script\Player\PlayerCharacter.cs" />
+    <Compile Include="Assets\Script\Mode\SaveAndLoadMode.cs" />
+    <Compile Include="Assets\Script\Data\MapDataManager.cs" />
+    <Compile Include="Assets\Script\Data\CSVWriter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AssetPack\SD_Project\UnityChanShader\Shader\Unitychan_chara_fuku.shader" />

@@ -10,7 +10,8 @@ public class ModeController : MonoBehaviour
     {
         DEFAULT,
         SET_BLOCK,
-        REMOVE_BLOCK
+        REMOVE_BLOCK,
+        SAVE_AND_LOAD
     }
 
     [SerializeField]
@@ -18,6 +19,9 @@ public class ModeController : MonoBehaviour
 
     [SerializeField]
     GameObject removeBlockMode; // 블록 제거 모드
+
+    [SerializeField]
+    GameObject SaveAndLoadMode; // 저장 불러오기 모드
 
     GameObject presentMode = null;      // 현재 모드
 
@@ -56,6 +60,8 @@ public class ModeController : MonoBehaviour
             ChangeMode(MODE.SET_BLOCK);
         else if (Input.GetKeyDown(KeyCode.F3))
             ChangeMode(MODE.REMOVE_BLOCK);
+        else if (Input.GetKeyDown(KeyCode.F4))
+            ChangeMode(MODE.SAVE_AND_LOAD);
     }
 
     public float GetLenght()
@@ -92,6 +98,10 @@ public class ModeController : MonoBehaviour
 
             case MODE.REMOVE_BLOCK:
                 presentMode = removeBlockMode;
+                break;
+
+            case MODE.SAVE_AND_LOAD:
+                presentMode = SaveAndLoadMode;
                 break;
         }
 

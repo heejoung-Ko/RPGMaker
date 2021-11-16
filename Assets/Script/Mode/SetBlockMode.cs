@@ -41,7 +41,6 @@ public class SetBlockMode : MonoBehaviour
 
         if (Physics.Raycast(cameraTf.position, direction, out hit))
         {
-            Debug.Log(hit.transform.gameObject.name);
             tempPos = hit.transform.position + hit.normal;
         }
 
@@ -53,6 +52,12 @@ public class SetBlockMode : MonoBehaviour
 
     void setBlock(Vector3 pos)
     {
+        if (!MapDataManager.instance.SetBlock(pos, selectObject))
+        {
+            Debug.Log("Fail Set Block");
+            return;
+        }
+
         GameObject block = GameObject.Instantiate(selectObject.prefab);
 
         block.transform.position = pos;
