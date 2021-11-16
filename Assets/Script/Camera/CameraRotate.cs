@@ -40,8 +40,6 @@ public class CameraRotate : MonoBehaviour, IBeginDragHandler, IDragHandler
         else if(xRotate < 91f)
             xRotate = Mathf.Clamp(xRotate, 0f, 80f);
 
-        Debug.Log(xRotate);
-
         cameraTF.rotation = Quaternion.Euler(xRotate, yRotate, 0);
 
         beginPos = eventData.position;

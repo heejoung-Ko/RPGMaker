@@ -7,7 +7,6 @@ public class SetBlockModeUIManager : MonoBehaviour
 {
     public static SetBlockModeUIManager instance;
 
-    [SerializeField]
     Canvas canvas;
     public GraphicRaycaster graphicRaycaster;
 
@@ -28,6 +27,7 @@ public class SetBlockModeUIManager : MonoBehaviour
                 Destroy(this.gameObject);
         }
 
+        canvas = transform.root.GetComponentInChildren<Canvas>();
         graphicRaycaster = canvas.GetComponent<GraphicRaycaster>();
 
         dragSlotRF = dragSlot.GetComponent<RectTransform>();
@@ -41,6 +41,7 @@ public class SetBlockModeUIManager : MonoBehaviour
 
     public void Drag(Vector2 pos)
     {
+        pos -= new Vector2(canvas.renderingDisplaySize.x / 2, canvas.renderingDisplaySize.y / 2);
         dragSlotRF.anchoredPosition = pos;
     }
 

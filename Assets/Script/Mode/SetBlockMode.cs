@@ -41,6 +41,7 @@ public class SetBlockMode : MonoBehaviour
 
         if (Physics.Raycast(cameraTf.position, direction, out hit))
         {
+            Debug.Log(hit.transform.gameObject.name);
             tempPos = hit.transform.position + hit.normal;
         }
 

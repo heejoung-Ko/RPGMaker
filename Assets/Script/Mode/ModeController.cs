@@ -15,14 +15,11 @@ public class ModeController : MonoBehaviour
 
     [SerializeField]
     GameObject setBlockMode;    // 블록 설치 모드
-    GameObject setBlockModeUI;
 
     [SerializeField]
     GameObject removeBlockMode; // 블록 제거 모드
-    GameObject removeBlockModeUI;
 
     GameObject presentMode = null;      // 현재 모드
-    GameObject presentModeUI = null;    // 현재 모드UI 
 
     static float MIN_LENGHT = 0;
     static float MAX_LENGHT = 100;
@@ -37,7 +34,7 @@ public class ModeController : MonoBehaviour
         if (instance == null)
         { 
             instance = this;
-            DontDestroyOnLoad(gameObject);  
+            //DontDestroyOnLoad(gameObject);  
         } 
         else 
         { 
@@ -45,10 +42,8 @@ public class ModeController : MonoBehaviour
                 Destroy(this.gameObject); 
         }
 
-        setBlockModeUI = GameObject.Find("SetBlockModeUI");
-        setBlockModeUI.SetActive(false);
-        removeBlockModeUI = GameObject.Find("RemoveBlockModeUI");
-        removeBlockModeUI.SetActive(false);
+        setBlockMode.SetActive(false);
+        removeBlockMode.SetActive(false);
 
         ChangeMode(MODE.DEFAULT);
     }
@@ -83,7 +78,6 @@ public class ModeController : MonoBehaviour
         if (presentMode != null)
         {
             presentMode.SetActive(false);
-            presentModeUI.SetActive(false);
         }
 
         switch(mode)
@@ -94,19 +88,16 @@ public class ModeController : MonoBehaviour
 
             case MODE.SET_BLOCK:
                 presentMode = setBlockMode;
-                presentModeUI = setBlockModeUI;
                 break;
 
             case MODE.REMOVE_BLOCK:
                 presentMode = removeBlockMode;
-                presentModeUI = removeBlockModeUI;
                 break;
         }
 
         if (presentMode != null)
         {
             presentMode.SetActive(true);
-            presentModeUI.SetActive(true);
         }
     }
 

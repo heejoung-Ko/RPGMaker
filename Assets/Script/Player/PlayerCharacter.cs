@@ -34,7 +34,6 @@ public class PlayerCharacter : MonoBehaviour
     {
         Vector3 direction = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
-
         if(direction == Vector3.zero)
         {
             presentMoveSpeed = 0;
